@@ -1,0 +1,18 @@
+<app-progressbar *ngIf="loading"></app-progressbar>
+<h1 class="page-title">Solicitud de ingreso</h1>
+<div *ngIf="admissionRequest != null" class="container">
+    <mat-card class="container">
+        <mat-card-title>Solicitud de Ingreso</mat-card-title>
+        <p><strong>Nombre:</strong>{{admissionRequest.aspirant?.firstName}}</p>
+        <p><strong>Apellido:</strong>{{admissionRequest.aspirant?.lastName}}</p>
+        <p><strong>Genero:</strong>{{admissionRequest.aspirant?.gender}}</p>
+        <p><strong>Cedula:</strong>{{admissionRequest.aspirant?.dni}}</p>
+        <p><strong>Edad:</strong>{{admissionRequest.aspirant?.age}}</p>
+
+        <p><strong>Casa a la que aspira:</strong>{{admissionRequest.house?.name}}</p>
+
+        <mat-card-actions>
+            <button routerLink="/dashboard/admission-requests" mat-raised-button>Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

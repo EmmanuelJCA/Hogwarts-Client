@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 20%;
+}
+
+.container {
+    margin: 5% 10%;
+}
+
+.paginator {
+    display: inline;
+}
+
+.delete, .search, .edit {
+    cursor: pointer;
+}
+
+.delete {
+    color: #d90e0e;
+}
+
+.edit {
+    color: #1978b0
+}
+
+.search {
+    color: #59b946;
+}
+
+.add-button {
+    font-size: 15px;
+    line-height: 20px;
+}

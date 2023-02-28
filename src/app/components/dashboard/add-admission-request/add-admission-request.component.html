@@ -1,0 +1,80 @@
+<h2 mat-dialog-title>{{ action }} solicitud de ingreso</h2>
+<mat-divider></mat-divider>
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-grid-list cols="2">
+
+        <mat-grid-tile>
+            <div class="example-container">
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput 
+                        placeholder="Ex. Harry" 
+                        formControlName ="firstName"
+                        required>
+                  <mat-error *ngIf="form.get('firstName')?.invalid || form.get('firstName')?.dirty || form.get('firstName')?.touched">Ingresa un nombre valido</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Apellido</mat-label>
+                  <input matInput 
+                        placeholder="Ex. Potter" 
+                        formControlName ="lastName"
+                        required>
+                  <mat-error *ngIf="form.get('lastName')?.invalid || form.get('lastName')?.dirty || form.get('lastName')?.touched">Ingresa un apellido valido</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Identificacion</mat-label>
+                  <input matInput 
+                        placeholder="Ex. 12345678" 
+                        formControlName ="dni"
+                        required>
+                  <mat-error *ngIf="form.get('dni')?.invalid || form.get('dni')?.dirty || form.get('dni')?.touched">Ingresa una Identificacion valida</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Edad</mat-label>
+                  <input matInput 
+                        placeholder="Ex. 17" 
+                        formControlName ="age"
+                        required>
+                  <mat-error *ngIf="form.get('age')?.invalid || form.get('age')?.dirty || form.get('age')?.touched">Ingresa una edad valida</mat-error>
+                </mat-form-field>
+
+              </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div>
+            <mat-label>Genero</mat-label>
+            <br/>
+            <mat-radio-group formControlName="gender" aria-label="Selecciona un Genero" color="primary" required>
+              <mat-radio-button value="M">Masculino</mat-radio-button>
+              <mat-radio-button value="F">Femenino</mat-radio-button>
+            </mat-radio-group> 
+            
+            <mat-form-field>
+              <mat-label>Casa</mat-label>
+              <mat-select formControlName="houseId" name="houseId">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let house of houses" [value]="house.houseId">
+                  {{house.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</mat-dialog-content>
+
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close (click)="closeModal()">Cancelar</button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="addNewAdmissionRequest()" [disabled]="form.invalid">{{action}}</button>
+</div>
+
